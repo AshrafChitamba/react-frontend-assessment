@@ -1,1 +1,1 @@
-export * from "./knowledge-entry";
+export * from "./knowledgeEntry";
