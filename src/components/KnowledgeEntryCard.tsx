@@ -21,14 +21,14 @@ export const KnowledgeEntryCard: FC<KnowledgeEntryCardProps> = ({
       <div className="grid grid-cols-2 item-center gap-3 mt-5">
         <button
           onClick={() => onEdit(entry)}
-          className="border hover:border-blue-600 text-blue-600 hover:text-white bg-[#f9fafb] hover:bg-blue-600/85 flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl cursor-pointer transition-colors"
+          className="border hover:border-blue-600 text-blue-600 hover:text-white bg-[#f9fafb] hover:bg-blue-600 flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl cursor-pointer transition-colors focus:bg-blue-600/85 focus:text-white focus:outline-none"
         >
           <Edit size={14} />
           <span className="hidden sm:inline text-sm">Edit</span>
         </button>
         <button
           onClick={() => onDelete(entry.id)}
-          className="border hover:border-red-600 text-red-600 hover:text-white bg-[#f9fafb] hover:bg-red-600/85 flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl cursor-pointer transition-colors"
+          className="border hover:border-red-600 text-red-600 hover:text-white bg-[#f9fafb] hover:bg-red-600 flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl cursor-pointer transition-colors  focus:bg-red-600 focus:text-white focus:outline-none"
         >
           <Trash2 size={14} />
           <span className="hidden sm:inline text-sm">Delete</span>
