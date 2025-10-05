@@ -2,9 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { EntryForm, GoBackBtn } from "../components";
 import { useFetchEntries } from "../hooks";
 import type { KnowledgeEntry } from "../types";
+import { useEditEntry } from "../hooks/useEditEntry";
 
 const EditKnowledgeEntryPage = () => {
   const { id } = Route.useSearch();
+  const editEntryMutation = useEditEntry()
 
   const { data: currentEntry, isPending } =
     useFetchEntries<KnowledgeEntry>(id);
@@ -26,8 +28,8 @@ const EditKnowledgeEntryPage = () => {
         <EntryForm
           action="edit"
           entry={currentEntry}
-          onSubmitForm={() => {}}
-          isPending={false}
+          onSubmitForm={editEntryMutation.mutate}
+          isPending={editEntryMutation.isPending}
         />
       ) : null}
     </main>
