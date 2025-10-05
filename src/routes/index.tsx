@@ -1,12 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { KnowledgeEntryCard, TextInput } from "../components";
 import { Plus } from "lucide-react";
-import { useFetchEntries } from "../hooks/useFetchEntries";
+import { useFetchEntries } from "../hooks";
 
 export const KnowledgeEntriesPage = () => {
   const { data, isPending } = useFetchEntries();
 
-  const onDeleteEntry = (id: number) => {
+  const onDeleteEntry = (id: string) => {
     console.log({ id });
   };
 
@@ -29,7 +29,9 @@ export const KnowledgeEntriesPage = () => {
               name="search"
               placeholder="Search here..."
               value=""
-              onChange={(e) => {}}
+              onChange={(e) => {
+                console.log(e);
+              }}
             />
             <Link
               to="/add-entry"
@@ -41,7 +43,11 @@ export const KnowledgeEntriesPage = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
             {data.map((entry) => (
-              <KnowledgeEntryCard entry={entry} onDelete={onDeleteEntry} />
+              <KnowledgeEntryCard
+                key={entry.id}
+                entry={entry}
+                onDelete={onDeleteEntry}
+              />
             ))}
           </div>
         </section>

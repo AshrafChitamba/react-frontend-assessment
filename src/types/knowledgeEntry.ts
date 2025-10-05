@@ -1,6 +1,6 @@
 
 export type KnowledgeEntry = {
-    id: number
+    id: string
     title: string
     description: string
     imageUrl?: string

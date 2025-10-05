@@ -5,7 +5,7 @@ import { Link } from "@tanstack/react-router";
 
 interface KnowledgeEntryCardProps {
   entry: KnowledgeEntry;
-  onDelete: (id: number) => void;
+  onDelete: (id: string) => void;
 }
 
 export const KnowledgeEntryCard: FC<KnowledgeEntryCardProps> = ({

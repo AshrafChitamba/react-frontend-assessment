@@ -1,25 +1,38 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { EntryForm } from "../components";
+import { useFetchEntries } from "../hooks";
+import type { KnowledgeEntry } from "../types";
 
 const EditKnowledgeEntryPage = () => {
   const { id } = Route.useSearch();
 
-  const currentEntity: any = {}
+  const { data: currentEntity, isPending } =
+    useFetchEntries<KnowledgeEntry>(id);
+
+  if (isPending) {
+    return (
+      <div>
+        <span>Loading Entry...</span>
+      </div>
+    );
+  }
 
   return (
     <main>
-      <EntryForm action="edit" entity={currentEntity} />
+      {currentEntity ? (
+        <EntryForm action="edit" entity={currentEntity} />
+      ) : null}
     </main>
   );
 };
 
-type EditEntitySearchParams = { id: number | undefined };
+type EditEntitySearchParams = { id: string | undefined };
 
 export const Route = createFileRoute("/edit-entry")({
   component: EditKnowledgeEntryPage,
   validateSearch: (search: Record<string, unknown>): EditEntitySearchParams => {
     return {
-      id: Number(search?.id),
+      id: String(search?.id),
     };
   },
 });
