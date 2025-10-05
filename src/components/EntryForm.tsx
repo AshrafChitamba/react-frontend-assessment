@@ -30,7 +30,7 @@ export const EntryForm = (props: EntryFormProps) => {
   };
 
   return (
-    <form className="grid px-4 py-6 gap-4" onSubmit={onFormSubmit}>
+    <form className="grid px-4 py-6 gap-4 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2" onSubmit={onFormSubmit}>
       <TextInput
         type="text"
         id="title"
@@ -48,7 +48,7 @@ export const EntryForm = (props: EntryFormProps) => {
         onChange={onDataChange}
       />
 
-      <div className="relative">
+      <div className="col-span-full relative">
         <input id="image" type="file" accept="image/*" className="hidden" />
         <label
           htmlFor="image"
@@ -61,7 +61,7 @@ export const EntryForm = (props: EntryFormProps) => {
         </label>
       </div>
 
-      <button className="inline-flex w-fit items-center justify-center bg-primary hover:bg-primary-hover h-9 rounded-md px-3 bg-black/90 text-white cursor-pointer">
+      <button className="col-span-full inline-flex w-fit items-center justify-center bg-primary hover:bg-primary-hover h-9 rounded-md px-3 bg-black/90 text-white cursor-pointer">
         {props.action === "add" ? (
           <>
             <Plus className="sm:mr-2" size={18} />
