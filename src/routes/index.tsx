@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { knowledgeEntries } from "../data";
 import { KnowledgeEntryCard, TextInput } from "../components";
 import { Plus } from "lucide-react";
 
@@ -29,9 +28,9 @@ export const KnowledgeEntriesPage = () => {
           </Link>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-          {knowledgeEntries.map((entry) => (
+          {/* {knowledgeEntries.map((entry) => (
             <KnowledgeEntryCard entry={entry} onDelete={onDeleteEntry} />
-          ))}
+          ))} */}
         </div>
       </section>
     </main>

@@ -1,11 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { EntryForm } from "../components";
-import { knowledgeEntries } from "../data";
 
 const EditKnowledgeEntryPage = () => {
   const { id } = Route.useSearch();
 
-  const currentEntity = knowledgeEntries.find((entity) => entity.id === id);
+  const currentEntity: any = {}
 
   return (
     <main>
