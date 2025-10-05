@@ -3,11 +3,11 @@ import type { KnowledgeEntry } from "../types";
 import { TextInput } from "./TextInput";
 import { Plus, Save } from "lucide-react";
 
-type EntityFormProps = {
+type EntryFormProps = {
   action: "add" | "edit";
   entity?: KnowledgeEntry;
 };
-export const EntityForm = (props: EntityFormProps) => {
+export const EntryForm = (props: EntryFormProps) => {
   const [knowledgeEntity, setKnowledgeEntity] = useState<
     Omit<KnowledgeEntry, "id">
   >(

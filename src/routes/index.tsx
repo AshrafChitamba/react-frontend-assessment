@@ -1,24 +1,25 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { knowledgeEntries } from "../data";
-import { KnowledgeEntryCard } from "../components";
+import { KnowledgeEntryCard, TextInput } from "../components";
 import { Plus } from "lucide-react";
 
 export const KnowledgeEntriesPage = () => {
   const onDeleteEntry = (id: number) => {
     console.log({ id });
   };
-  
+
   return (
     <main>
       <section className="container mx-auto px-4 py-4">
         <div className="flex justify-end items-center gap-2 pt-3 pb-6">
-          <div>
-            <input
-              type="text"
-              className="border border-black/50 outline-none rounded h-9 px-3 focus:border-blue-500"
-              placeholder="Search"
-            />
-          </div>
+          <TextInput
+            type="search"
+            id="search"
+            name="search"
+            placeholder="Search here..."
+            value=""
+            onChange={(e) => {}}
+          />
           <Link
             to="/add-entry"
             className="flex items-center justify-center bg-primary hover:bg-primary-hover h-9 rounded-md px-3 bg-blue-600 text-white"

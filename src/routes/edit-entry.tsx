@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { EntityForm } from "../components/EntityForm";
+import { EntryForm } from "../components";
 import { knowledgeEntries } from "../data";
 
 const EditKnowledgeEntryPage = () => {
@@ -9,7 +9,7 @@ const EditKnowledgeEntryPage = () => {
 
   return (
     <main>
-      <EntityForm action="edit" entity={currentEntity} />
+      <EntryForm action="edit" entity={currentEntity} />
     </main>
   );
 };
