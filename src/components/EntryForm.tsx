@@ -1,7 +1,7 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import type { KnowledgeEntry } from "../types";
 import { TextInput } from "./TextInput";
-import { Plus, Save } from "lucide-react";
+import { Plus, Save, Upload } from "lucide-react";
 
 type EntryFormProps = {
   action: "add" | "edit";
@@ -47,6 +47,19 @@ export const EntryForm = (props: EntryFormProps) => {
         value={knowledgeEntity.description}
         onChange={onDataChange}
       />
+
+      <div className="relative">
+        <input id="image" type="file" accept="image/*" className="hidden" />
+        <label
+          htmlFor="image"
+          className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed rounded-lg cursor-pointer bg-muted hover:bg-muted/80 transition-colors border-border"
+        >
+          <Upload className="mb-2 text-muted-foreground" />
+          <span className="text-sm text-muted-foreground">
+            Click to upload an image
+          </span>
+        </label>
+      </div>
 
       <button className="inline-flex w-fit items-center justify-center bg-primary hover:bg-primary-hover h-9 rounded-md px-3 bg-black/90 text-white cursor-pointer">
         {props.action === "add" ? (
