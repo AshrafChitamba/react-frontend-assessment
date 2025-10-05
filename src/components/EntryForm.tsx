@@ -5,13 +5,14 @@ import { Plus, Save, Upload } from "lucide-react";
 
 type EntryFormProps = {
   action: "add" | "edit";
-  entity?: KnowledgeEntry;
+  entry?: KnowledgeEntry;
+  onSubmitForm(entry: KnowledgeEntry): void;
 };
 export const EntryForm = (props: EntryFormProps) => {
-  const [knowledgeEntity, setKnowledgeEntity] = useState<
+  const [knowledgeEntry, setKnowledgeEntry] = useState<
     Omit<KnowledgeEntry, "id">
   >(
-    props.entity ?? {
+    props.entry ?? {
       title: "",
       description: "",
       imageUrl: "",
@@ -19,7 +20,7 @@ export const EntryForm = (props: EntryFormProps) => {
   );
   const onDataChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    setKnowledgeEntity((prevState) => ({
+    setKnowledgeEntry((prevState) => ({
       ...prevState,
       [name]: value,
     }));
@@ -36,7 +37,7 @@ export const EntryForm = (props: EntryFormProps) => {
         id="title"
         name="title"
         placeholder="Title"
-        value={knowledgeEntity.title}
+        value={knowledgeEntry.title}
         onChange={onDataChange}
       />
       <TextInput
@@ -44,7 +45,7 @@ export const EntryForm = (props: EntryFormProps) => {
         id="description"
         name="description"
         placeholder="Description"
-        value={knowledgeEntity.description}
+        value={knowledgeEntry.description}
         onChange={onDataChange}
       />
 

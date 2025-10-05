@@ -6,7 +6,7 @@ import type { KnowledgeEntry } from "../types";
 const EditKnowledgeEntryPage = () => {
   const { id } = Route.useSearch();
 
-  const { data: currentEntity, isPending } =
+  const { data: currentEntry, isPending } =
     useFetchEntries<KnowledgeEntry>(id);
 
   if (isPending) {
@@ -19,18 +19,16 @@ const EditKnowledgeEntryPage = () => {
 
   return (
     <main>
-      {currentEntity ? (
-        <EntryForm action="edit" entity={currentEntity} />
-      ) : null}
+      {currentEntry ? <EntryForm action="edit" entry={currentEntry} /> : null}
     </main>
   );
 };
 
-type EditEntitySearchParams = { id: string | undefined };
+type EditEntrySearchParams = { id: string | undefined };
 
 export const Route = createFileRoute("/edit-entry")({
   component: EditKnowledgeEntryPage,
-  validateSearch: (search: Record<string, unknown>): EditEntitySearchParams => {
+  validateSearch: (search: Record<string, unknown>): EditEntrySearchParams => {
     return {
       id: String(search?.id),
     };
