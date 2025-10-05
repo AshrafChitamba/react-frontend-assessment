@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { EntryForm } from "../components";
+import { EntryForm, GoBackBtn } from "../components";
 import { useFetchEntries } from "../hooks";
 import type { KnowledgeEntry } from "../types";
 
@@ -19,7 +19,17 @@ const EditKnowledgeEntryPage = () => {
 
   return (
     <main>
-      {currentEntry ? <EntryForm action="edit" entry={currentEntry} onSubmitForm={() => {}} isPending={false} /> : null}
+      <div className="container mx-auto px-4 py-4">
+        <GoBackBtn />
+      </div>
+      {currentEntry ? (
+        <EntryForm
+          action="edit"
+          entry={currentEntry}
+          onSubmitForm={() => {}}
+          isPending={false}
+        />
+      ) : null}
     </main>
   );
 };

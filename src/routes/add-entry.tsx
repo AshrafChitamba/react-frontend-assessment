@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { EntryForm } from "../components";
+import { EntryForm, GoBackBtn } from "../components";
 import { useAddEntry } from "../hooks/useAddEntry";
 
 const AddKnowledgeEntryPage = () => {
@@ -7,6 +7,9 @@ const AddKnowledgeEntryPage = () => {
 
   return (
     <main>
+      <div className="container mx-auto px-4 py-4">
+        <GoBackBtn />
+      </div>
       <EntryForm
         action="add"
         onSubmitForm={addEntryMutation.mutate}
