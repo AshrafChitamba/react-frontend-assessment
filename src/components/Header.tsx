@@ -1,18 +1,15 @@
-import { Plus } from "lucide-react";
-
 export const Header = () => {
   return (
-    <header className="sticky top-0 z-10 border-b">
+    <header className="border-b bg-white">
       <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between gap-4">
-          <div>
-            <h1 className="text-xl font-bold">Knowledge Entries</h1>
+        <div className="flex items-center gap-2.5">
+          <span className="bg-[#f9fafb] text-xl p-2.5 rounded-full font-medium">
+            AC
+          </span>
+          <div className="flex flex-col items-start justify-center">
+            <span className="font-medium">Ashraf Chitambaa</span>
+            <span className="text-[#627084] text-sm">admin</span>
           </div>
-
-          <button className="flex items-center justify-center bg-primary hover:bg-primary-hover h-9 rounded-xl px-3 bg-blue-600 text-white">
-            <Plus className="sm:mr-2" size={18} />
-            <span className="hidden sm:inline">Add Entry</span>
-          </button>
         </div>
       </div>
     </header>
