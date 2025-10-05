@@ -1,18 +1,12 @@
 import { useQueryClient, useMutation } from "@tanstack/react-query";
 import { apiClient } from "../api";
-import type { KnowledgeEntry } from "../types";
-import { useRouter } from "@tanstack/react-router";
 
-export const useAddEntry = () => {
+export const useDeleteEntry = () => {
   const queryClient = useQueryClient();
-  const router = useRouter();
 
   return useMutation({
-    mutationFn: async (uploadData: KnowledgeEntry) => {
-      const { data } = await apiClient.post(`/`, uploadData);
-      if (data) {
-        router.history.back();
-      }
+    mutationFn: async (id: string) => {
+      await apiClient.delete(`/${id}`);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({
