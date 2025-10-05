@@ -1,13 +1,16 @@
-import { useState, type ChangeEvent } from "react";
+import { useState, type ChangeEvent, type FormEvent } from "react";
 import type { KnowledgeEntry } from "../types";
 import { TextInput } from "./TextInput";
-import { Plus } from "lucide-react";
+import { Plus, Save } from "lucide-react";
 
 type EntityFormProps = {
+  action: "add" | "edit";
   entity?: KnowledgeEntry;
 };
 export const EntityForm = (props: EntityFormProps) => {
-  const [knowledgeEntity, setKnowledgeEntity] = useState<Omit<KnowledgeEntry, "id">>(
+  const [knowledgeEntity, setKnowledgeEntity] = useState<
+    Omit<KnowledgeEntry, "id">
+  >(
     props.entity ?? {
       title: "",
       description: "",
@@ -22,8 +25,12 @@ export const EntityForm = (props: EntityFormProps) => {
     }));
   };
 
+  const onFormSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+  };
+
   return (
-    <form className="grid px-4 py-6 gap-4">
+    <form className="grid px-4 py-6 gap-4" onSubmit={onFormSubmit}>
       <TextInput
         type="text"
         id="title"
@@ -42,8 +49,17 @@ export const EntityForm = (props: EntityFormProps) => {
       />
 
       <button className="inline-flex w-fit items-center justify-center bg-primary hover:bg-primary-hover h-9 rounded-md px-3 bg-black/90 text-white cursor-pointer">
-        <Plus className="sm:mr-2" size={18} />
-        <span>Add Entry</span>
+        {props.action === "add" ? (
+          <>
+            <Plus className="sm:mr-2" size={18} />
+            <span>Add Entry</span>
+          </>
+        ) : props.action === "edit" ? (
+          <>
+            <Save className="sm:mr-2" size={18} />
+            <span>Edit Entry</span>
+          </>
+        ) : null}
       </button>
     </form>
   );

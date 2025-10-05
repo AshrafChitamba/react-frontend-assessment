@@ -4,7 +4,7 @@ import { EntityForm } from "../components/EntityForm";
 const AddKnowledgeEntryPage = () => {
   return (
     <main>
-      <EntityForm  />
+      <EntityForm action="add"  />
     </main>
   );
 };

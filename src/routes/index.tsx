@@ -1,16 +1,13 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { knowledgeEntries } from "../data";
 import { KnowledgeEntryCard } from "../components";
 import { Plus } from "lucide-react";
 
 export const KnowledgeEntriesPage = () => {
-  const navigate = useNavigate();
-  const onEditEntry = (id: string) => {
-    navigate({ to: "/edit-entry", search: { id } });
-  };
-  const onDeleteEntry = (id: string) => {
+  const onDeleteEntry = (id: number) => {
     console.log({ id });
   };
+  
   return (
     <main>
       <section className="container mx-auto px-4 py-4">
@@ -32,11 +29,7 @@ export const KnowledgeEntriesPage = () => {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
           {knowledgeEntries.map((entry) => (
-            <KnowledgeEntryCard
-              entry={entry}
-              onDelete={onDeleteEntry}
-              onEdit={onEditEntry}
-            />
+            <KnowledgeEntryCard entry={entry} onDelete={onDeleteEntry} />
           ))}
         </div>
       </section>
