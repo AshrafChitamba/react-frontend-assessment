@@ -7,9 +7,8 @@ type EntityFormProps = {
   entity?: KnowledgeEntry;
 };
 export const EntityForm = (props: EntityFormProps) => {
-  const [knowledgeEntity, setKnowledgeEntity] = useState<KnowledgeEntry>(
+  const [knowledgeEntity, setKnowledgeEntity] = useState<Omit<KnowledgeEntry, "id">>(
     props.entity ?? {
-      id: "",
       title: "",
       description: "",
       imageUrl: "",
