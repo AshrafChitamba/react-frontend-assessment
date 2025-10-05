@@ -5,12 +5,12 @@ import { Link } from "@tanstack/react-router";
 
 interface KnowledgeEntryCardProps {
   entry: KnowledgeEntry;
-  onDelete: (id: string) => void;
+  onSelected: (id: string) => void;
 }
 
 export const KnowledgeEntryCard: FC<KnowledgeEntryCardProps> = ({
   entry,
-  onDelete,
+  onSelected,
 }) => {
   return (
     <div className="flex flex-col justify-between border py-8 px-7 rounded-xl bg-white">
@@ -31,7 +31,7 @@ export const KnowledgeEntryCard: FC<KnowledgeEntryCardProps> = ({
           <span className="hidden sm:inline text-sm">Edit</span>
         </Link>
         <button
-          onClick={() => onDelete(entry.id)}
+          onClick={() => onSelected(entry.id)}
           className="border hover:border-red-600 text-red-600 hover:text-white bg-[#f9fafb] hover:bg-red-600 flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl cursor-pointer transition-colors  focus:bg-red-600 focus:text-white focus:outline-none"
         >
           <Trash2 size={14} />

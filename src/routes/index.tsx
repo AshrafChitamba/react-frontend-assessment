@@ -2,12 +2,21 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { KnowledgeEntryCard, TextInput } from "../components";
 import { Plus } from "lucide-react";
 import { useFetchEntries } from "../hooks";
+import { DeleteEntryDisclaimer } from "../components/DeleteEntryDisclaimer";
+import { useState } from "react";
 
 export const KnowledgeEntriesPage = () => {
   const { data, isPending } = useFetchEntries();
+  const [openModal, setOpenModal] = useState(false);
+  const [entryId, setEntryId] = useState<string | null>(null);
 
-  const onDeleteEntry = (id: string) => {
-    console.log({ id });
+  const onSelectEntry = (id: string) => {
+    setEntryId(id);
+    setOpenModal(true);
+  };
+
+  const deleteEntry = () => {
+    
   };
 
   if (isPending) {
@@ -46,10 +55,16 @@ export const KnowledgeEntriesPage = () => {
               <KnowledgeEntryCard
                 key={entry.id}
                 entry={entry}
-                onDelete={onDeleteEntry}
+                onSelected={onSelectEntry}
               />
             ))}
           </div>
+
+          <DeleteEntryDisclaimer
+            onClose={() => setOpenModal(false)}
+            opened={openModal}
+            onDelete={deleteEntry}
+          />
         </section>
       ) : undefined}
     </main>
