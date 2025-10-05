@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { knowledgeEntries } from "../data";
-import { KnowledgeEntryCard } from "../components/KnowledgeEntryCard";
+import { KnowledgeEntryCard } from "../components";
 
 export const KnowledgeEntriesPage = () => {
   return (

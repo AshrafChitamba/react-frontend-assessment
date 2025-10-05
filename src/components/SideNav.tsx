@@ -9,10 +9,10 @@ export const SideNav = () => {
 
   return (
     <aside className="relative border-r h-auto md:min-h-screen min-w-[240px] bg-white">
-      <div className="bg-black/90 text-white py-2.5 md:p-5 md:pt-6 md:pb-10">
+      <div className="bg-black/90 text-white py-2.5 md:p-5 md:py-[0.66rem]">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div>
-            <h1 className="text-sm md:text-4xl font-bold uppercase tracking-wide">
+            <h1 className="text-sm md:text-2xl font-bold uppercase tracking-wide">
               tp
             </h1>
             <p className="text-[#797979] text-xs">Technician portal</p>
