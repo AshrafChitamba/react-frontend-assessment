@@ -1,9 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { EntityForm } from "../components/EntityForm";
 
 const AddKnowledgeEntryPage = () => {
-  return <main>add knowledge entry page</main>;
+  return (
+    <main>
+      <EntityForm  />
+    </main>
+  );
 };
 
-export const Route = createFileRoute('/add-entry')({
+export const Route = createFileRoute("/add-entry")({
   component: AddKnowledgeEntryPage,
 });

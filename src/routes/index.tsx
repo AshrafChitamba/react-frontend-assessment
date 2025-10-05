@@ -6,7 +6,7 @@ import { Plus } from "lucide-react";
 export const KnowledgeEntriesPage = () => {
   const navigate = useNavigate();
   const onEditEntry = (id: string) => {
-    navigate({ to: "/edit-entry", search: { id: new URLSearchParams(id) } });
+    navigate({ to: "/edit-entry", params: { id } });
   };
   const onDeleteEntry = (id: string) => {
     console.log({ id });

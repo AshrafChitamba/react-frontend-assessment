@@ -1,4 +1,4 @@
-import type { FC } from "react";
+import type { ChangeEvent, FC } from "react";
 
 type TextInputProps = {
   type: "text" | "search";
@@ -6,7 +6,7 @@ type TextInputProps = {
   name: string;
   placeholder: string;
   value: string;
-  setValue(newValue: string): void;
+  onChange(event: ChangeEvent<HTMLInputElement>): void;
 };
 
 export const TextInput: FC<TextInputProps> = (props) => {
@@ -20,8 +20,8 @@ export const TextInput: FC<TextInputProps> = (props) => {
         placeholder={props.placeholder}
         autoCapitalize="true"
         autoComplete="true"
-        onChange={(e) => props.setValue(e.target.value)}
-        className="border border-black/50 outline-none rounded h-9 px-3 focus:border-blue-500"
+        onChange={props.onChange}
+        className="w-full border border-black/50 outline-none rounded h-9 px-3 focus:border-blue-500"
       />
     </div>
   );
