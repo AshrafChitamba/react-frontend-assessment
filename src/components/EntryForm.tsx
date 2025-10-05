@@ -2,17 +2,18 @@ import { useState, type ChangeEvent, type FormEvent } from "react";
 import type { KnowledgeEntry } from "../types";
 import { TextInput } from "./TextInput";
 import { Plus, Save, Upload } from "lucide-react";
+import { generateEntryId } from "../utils";
 
 type EntryFormProps = {
   action: "add" | "edit";
   entry?: KnowledgeEntry;
   onSubmitForm(entry: KnowledgeEntry): void;
+  isPending: boolean;
 };
 export const EntryForm = (props: EntryFormProps) => {
-  const [knowledgeEntry, setKnowledgeEntry] = useState<
-    Omit<KnowledgeEntry, "id">
-  >(
+  const [knowledgeEntry, setKnowledgeEntry] = useState<KnowledgeEntry>(
     props.entry ?? {
+      id: "",
       title: "",
       description: "",
       imageUrl: "",
@@ -28,10 +29,16 @@ export const EntryForm = (props: EntryFormProps) => {
 
   const onFormSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const entryId = generateEntryId();
+
+    props.onSubmitForm({ ...knowledgeEntry, id: knowledgeEntry.id || entryId });
   };
 
   return (
-    <form className="grid px-4 py-6 gap-4 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2" onSubmit={onFormSubmit}>
+    <form
+      className="grid px-4 py-6 gap-4 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2"
+      onSubmit={onFormSubmit}
+    >
       <TextInput
         type="text"
         id="title"
@@ -66,12 +73,12 @@ export const EntryForm = (props: EntryFormProps) => {
         {props.action === "add" ? (
           <>
             <Plus className="sm:mr-2" size={18} />
-            <span>Add Entry</span>
+            <span>{props.isPending ? "Adding Entry..." : "Add Entry"}</span>
           </>
         ) : props.action === "edit" ? (
           <>
             <Save className="sm:mr-2" size={18} />
-            <span>Edit Entry</span>
+            <span>{props.isPending ? "Editing Entry..." : "Edit Entry"}</span>
           </>
         ) : null}
       </button>

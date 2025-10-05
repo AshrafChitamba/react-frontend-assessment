@@ -19,7 +19,7 @@ const EditKnowledgeEntryPage = () => {
 
   return (
     <main>
-      {currentEntry ? <EntryForm action="edit" entry={currentEntry} /> : null}
+      {currentEntry ? <EntryForm action="edit" entry={currentEntry} onSubmitForm={() => {}} isPending={false} /> : null}
     </main>
   );
 };

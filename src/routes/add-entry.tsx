@@ -3,13 +3,15 @@ import { EntryForm } from "../components";
 import { useAddEntry } from "../hooks/useAddEntry";
 
 const AddKnowledgeEntryPage = () => {
-  const addEntryMutation = useAddEntry()
-  
-
+  const addEntryMutation = useAddEntry();
 
   return (
     <main>
-      <EntryForm action="add"   />
+      <EntryForm
+        action="add"
+        onSubmitForm={addEntryMutation.mutate}
+        isPending={addEntryMutation.isPending}
+      />
     </main>
   );
 };

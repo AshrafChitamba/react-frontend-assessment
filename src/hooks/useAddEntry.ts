@@ -8,6 +8,7 @@ export const useAddEntry = () => {
   return useMutation({
     mutationFn: async (uploadData: KnowledgeEntry) => {
       const { data } = await apiClient.post(`/`, uploadData);
+      console.log(data);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({
