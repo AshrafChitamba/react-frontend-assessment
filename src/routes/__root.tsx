@@ -4,7 +4,7 @@ import { Header } from "../components";
 import { SideNav } from "../components/SideNav";
 
 const RootLayout = () => (
-  <main className="flex">
+  <main className="flex flex-col md:flex-row">
     <SideNav />
     <div className="flex-1">
       <Header />
