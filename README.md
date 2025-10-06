@@ -1,75 +1,82 @@
-# React + TypeScript + Vite
+# Technician Portal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the **Technician Portal**, a mobile-first knowledge capture interface for manufacturing technicians. This project demonstrates building responsive, simple pixel-perfect UI with CRUD functionality, API integration, and automated testing.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tools & Technologies
 
-## React Compiler
+* [Bun](https://bun.sh/) + [Vite](https://vitejs.dev/) + [React](https://react.dev/) (TypeScript)
+* [TanStack Router](https://tanstack.com/router/latest) + [TanStack Query](https://tanstack.com/query/latest) (for routing and making API requests respectively)
+* [JSON Server](https://github.com/typicode/json-server) (for mock API)
+* [Playwright](https://playwright.dev/) (for end-to-end testing)
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+---
 
-Note: This will impact Vite dev & build performances.
+## Setup Instructions
 
-## Expanding the ESLint configuration
+Follow these steps to run the project locally:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. **Clone the repository**
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+   ```bash
+   git clone <repository-url>
+   cd react-frontend-assessment
+   ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+2. **Install dependencies**
+   You can use either bun or npm:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+   ```bash
+   bun install
+   # or
+   npm install
+   ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+3. **Run the React app**
+   Start the development server (default port: `5173`):
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+   ```bash
+   bun dev
+   # or
+   npm run dev
+   ```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+4. **Run the JSON Server (Mock API)**
+   Start the JSON server (default port: `3000`):
+
+   ```bash
+   npx json-server --watch db.json --port 4000
+   ```
+
+   > You may use a different port if `4000` is not available or just leave the default port without having to specify --port.
+
+---
+
+## Running Tests
+
+This project uses [Playwright](https://playwright.dev/) for automated end-to-end tests.
+
+1. **Install Playwright (if not installed)**
+
+   ```bash
+   bun create playwright
+   # or
+   npx playwright install
+   ```
+
+2. **Run tests**
+   Run Playwright in interactive UI mode for easy debugging visualization:
+
+   ```bash
+   npx playwright test --ui
+   ```
+---
+
+* The app is designed with a **mobile-first** approach, then desktop.
+* Running the add a new entery test once will create a new entry and running it for the second time would cause an error. You can to delete the newly created entry first then run it again. This can also be solved by checking for the first element only with .first() function.
+* For production testing, build the app first:
+
+  ```bash
+  bun run build && bun run preview
+  ```
