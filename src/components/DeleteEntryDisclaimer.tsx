@@ -11,7 +11,7 @@ export const DeleteEntryDisclaimer = (props: DeleteEntryDisclaimerProps) => {
         props.opened ? "grid place-content-center" : "hidden"
       } w-full bg-black/40 backdrop-blur-[2px] p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-full max-h-full select-none`}
     >
-      <div className="p-5 relative min-w-[280px] sm:w-[400px] xl:w-[500px] bg-white shadow-sm dark:bg-white transition-all duration-500 ease">
+      <div className="p-5 relative min-w-[280px] sm:w-[400px] xl:w-[500px] bg-white shadow-sm dark:bg-white transition-all duration-500 ease rounded-md">
         <h3 className="text-xl whitespace-nowrap font-semibold text-gray-900">
           Are you sure?
         </h3>

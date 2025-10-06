@@ -69,7 +69,10 @@ export const EntryForm = (props: EntryFormProps) => {
         </label>
       </div>
 
-      <button className="col-span-full inline-flex w-fit items-center justify-center bg-primary hover:bg-primary-hover h-9 px-3 bg-black/90 text-white cursor-pointer">
+      <button
+        data-testid="submit-entry-btn"
+        className="col-span-full inline-flex w-fit items-center justify-center bg-primary hover:bg-primary-hover h-9 px-3 bg-black/90 text-white cursor-pointer"
+      >
         {props.action === "add" ? (
           <>
             <Plus className="sm:mr-2" size={18} />

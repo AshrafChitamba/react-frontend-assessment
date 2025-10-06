@@ -17,6 +17,12 @@
       "title": "Daily Equipment Inspection Checklist",
       "description": "Standard checklist for daily equipment inspection. Document any irregularities and report to supervisor immediately.",
       "imageUrl": null
+    },
+    {
+      "id": "b63ba762-3ebd-449f-a857-22765b38a9fd",
+      "title": "This is a test title",
+      "description": "This is a test description",
+      "imageUrl": ""
     }
   ]
 }
