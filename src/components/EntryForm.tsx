@@ -60,7 +60,7 @@ export const EntryForm = (props: EntryFormProps) => {
         <input id="image" type="file" accept="image/*" className="hidden" />
         <label
           htmlFor="image"
-          className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed rounded-lg cursor-pointer bg-muted hover:bg-muted/80 transition-colors border-border"
+          className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed cursor-pointer bg-muted hover:bg-muted/80 transition-colors border-border"
         >
           <Upload className="mb-2 text-muted-foreground" />
           <span className="text-sm text-muted-foreground">
@@ -69,7 +69,7 @@ export const EntryForm = (props: EntryFormProps) => {
         </label>
       </div>
 
-      <button className="col-span-full inline-flex w-fit items-center justify-center bg-primary hover:bg-primary-hover h-9 rounded-md px-3 bg-black/90 text-white cursor-pointer">
+      <button className="col-span-full inline-flex w-fit items-center justify-center bg-primary hover:bg-primary-hover h-9 px-3 bg-black/90 text-white cursor-pointer">
         {props.action === "add" ? (
           <>
             <Plus className="sm:mr-2" size={18} />

@@ -11,9 +11,9 @@ export const Header = () => {
 
   return (
     <header className="border-b border-t-4 border-t-[var(--color-gray-300)] bg-white">
-      <div className="container mx-auto px-4 py-2">
+      <div className="px-4 py-2">
         <div className="flex items-center gap-2.5">
-          <span className="bg-[#f9fafb] text-xl p-2.5 rounded-full font-medium">
+          <span className="h-11 w-11 flex place-items-center bg-[#f9fafb] text-lg font-medium p-2.5 rounded-full overflow-hidden">
             AC
           </span>
           <div className="flex flex-col items-start justify-center">
@@ -22,7 +22,7 @@ export const Header = () => {
           </div>
         </div>
       </div>
-      <div className="border-t container mx-auto px-4 py-3.5">
+      <div className="border-t px-4 py-3.5">
         <div className="flex items-center gap-1">
           <Link to="/" className="text-[#797979d3]">
             Dashboard

@@ -19,3 +19,7 @@ html {
     border-color: var(--color-gray-200, currentColor);
   }
 }
+
+input, button, a {
+  @apply !rounded-md;
+}

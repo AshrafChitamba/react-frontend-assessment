@@ -46,13 +46,13 @@ export const KnowledgeEntriesPage = () => {
             />
             <Link
               to="/add-entry"
-              className="flex items-center justify-center bg-primary hover:bg-primary-hover h-9 rounded-md px-3 bg-blue-600 text-white"
+              className="flex items-center justify-center bg-primary hover:bg-primary-hover h-9 px-3 bg-blue-600 text-white"
             >
               <Plus className="sm:mr-2" size={18} />
               <span className="hidden sm:inline">Add Entry</span>
             </Link>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-3">
             {data.map((entry) => (
               <KnowledgeEntryCard
                 key={entry.id}

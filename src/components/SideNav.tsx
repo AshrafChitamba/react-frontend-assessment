@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Menu } from "lucide-react";
+import { LayoutDashboard, Menu } from "lucide-react";
 import { useState } from "react";
 
 export const SideNav = () => {
@@ -9,8 +9,8 @@ export const SideNav = () => {
 
   return (
     <aside className="relative border-r h-auto md:min-h-screen min-w-[240px] bg-white">
-      <div className="bg-black/90 text-white py-2.5 md:p-5 md:py-[0.66rem]">
-        <div className="container mx-auto px-4 flex justify-between items-center">
+      <div className="bg-black/90 text-white py-2.5 md:p-5 md:py-[0.66rem] rounded-none">
+        <div className="px-4 flex justify-between items-center">
           <div>
             <h1 className="text-sm md:text-2xl font-bold uppercase tracking-wide">
               tp
@@ -30,9 +30,9 @@ export const SideNav = () => {
           <li>
             <Link
               to="/"
-              className="block p-3 md:py-3.5 hover:bg-[#f9fafb] focus:bg-[#f9fafb] focus:outline-none focus:border-none transition-colors"
+              className="flex items-center gap-2 p-3 md:py-3.5 hover:bg-[#f9fafb] focus:bg-[#f9fafb] focus:outline-none focus:border-none transition-colors"
             >
-              Dashboard
+              <LayoutDashboard size={16} /> Dashboard
             </Link>
           </li>
         </ul>

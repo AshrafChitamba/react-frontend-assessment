@@ -21,7 +21,7 @@ export const TextInput: FC<TextInputProps> = (props) => {
         autoCapitalize="true"
         autoComplete="true"
         onChange={props.onChange}
-        className="w-full border border-black/50 outline-none rounded h-9 px-3 focus:border-blue-500"
+        className="w-full border border-black/50 outline-none h-9 px-3 focus:border-blue-500"
       />
     </div>
   );
