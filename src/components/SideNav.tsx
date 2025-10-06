@@ -9,13 +9,12 @@ export const SideNav = () => {
 
   return (
     <aside className="relative border-r h-auto md:min-h-screen min-w-[240px] bg-white">
-      <div className="bg-black/90 text-white py-2.5 md:p-5 md:py-[0.66rem] rounded-none">
+      <div className="bg-black/90 text-white py-2.5 md:p-5 md:py-4 rounded-none">
         <div className="px-4 flex justify-between items-center">
           <div>
             <h1 className="text-sm md:text-2xl font-bold uppercase tracking-wide">
-              tp
+              Technician portal
             </h1>
-            <p className="text-[#797979] text-xs">Technician portal</p>
           </div>
           <div className="md:hidden">
             <Menu color="#f2f2f2" size={20} onClick={toggleLinks} />
