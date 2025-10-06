@@ -1,12 +1,6 @@
 {
   "entries": [
     {
-      "id": "130462f2-7923-4897-9a7b-a2a37442ee6e",
-      "title": "Safety Protocols for Machine Maintenance",
-      "description": "Essential safety procedures when performing maintenance on industrial machinery. Always follow lockout/tagout procedures.",
-      "imageUrl": null
-    },
-    {
       "id": "5a8cc548-cbcb-43f8-b9bc-edc934880c63",
       "title": "Hydraulic System Troubleshooting",
       "description": "Common issues with hydraulic systems and quick diagnostic steps. Check fluid levels, filter conditions, and pressure readings.",
@@ -19,9 +13,9 @@
       "imageUrl": null
     },
     {
-      "id": "b63ba762-3ebd-449f-a857-22765b38a9fd",
-      "title": "This is a test title",
-      "description": "This is a test description",
+      "id": "4a509a3b-9733-4f3d-8153-8f1d12c977f8",
+      "title": "Safety Protocols for Machine Maintenance",
+      "description": "Essential safety procedures when performing maintenance on industrial machinery. Always follow lockout/tagout procedures.",
       "imageUrl": ""
     }
   ]

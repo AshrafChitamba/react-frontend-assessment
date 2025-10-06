@@ -35,6 +35,7 @@ export const DeleteEntryDisclaimer = (props: DeleteEntryDisclaimerProps) => {
             type="button"
             className="text-white capitalize bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-hidden font-medium text-sm px-5 py-2.5 text-center cursor-pointer"
             onClick={props.onDelete}
+            data-testid='confirm-delete-entry-btn'
           >
             delete
           </button>

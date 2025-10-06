@@ -33,6 +33,7 @@ export const KnowledgeEntryCard: FC<KnowledgeEntryCardProps> = ({
         <button
           onClick={() => onSelected(entry.id)}
           className="border hover:border-red-600 text-red-600 hover:text-white bg-[#f9fafb] hover:bg-red-600 flex items-center justify-center gap-1.5 px-4 py-2 cursor-pointer transition-colors  focus:bg-red-600 focus:text-white focus:outline-none"
+          data-testid="delete-entry-btn"
         >
           <Trash2 size={14} />
           <span className="text-sm">Delete</span>
