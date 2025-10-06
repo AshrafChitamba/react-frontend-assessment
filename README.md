@@ -51,6 +51,7 @@ Follow these steps to run the project locally:
 
    > You may use a different port if `4000` is not available or just leave the default port without having to specify --port.
 
+  The current setup is set to use port `4000` so changing this will require you to modify the `src/api/apiClientConfig.ts` file to use the port you have selected. For example, if it's a default port, put 3000.
 ---
 
 ## Running Tests
