@@ -12,6 +12,7 @@ export const GoBackBtn = () => {
     <button
       onClick={navigateBack()}
       className="flex items-center justify-center bg-primary hover:bg-primary-hover h-9 px-3 bg-black/90 text-white capitalize cursor-pointer"
+   data-testid='goback-btn'
     >
       <ChevronLeft className="sm:mr-2" size={18} />
       <span>go back</span>
