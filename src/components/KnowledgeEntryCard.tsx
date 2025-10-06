@@ -25,7 +25,7 @@ export const KnowledgeEntryCard: FC<KnowledgeEntryCardProps> = ({
           search={{
             id: entry.id,
           }}
-          className="border hover:border-blue-600 text-blue-600 hover:text-white bg-[#f9fafb] hover:bg-blue-600 flex items-center justify-center gap-1.5 px-4 py-2 cursor-pointer transition-colors focus:bg-blue-600/85 focus:text-white focus:outline-none"
+          className="border hover:border-black/90 text-black/90 hover:text-white bg-[#f9fafb] hover:bg-black/90 flex items-center justify-center gap-1.5 px-4 py-2 cursor-pointer transition-colors focus:bg-black/90 focus:text-white focus:outline-none"
         >
           <Edit size={14} />
           <span className="text-sm">Edit</span>

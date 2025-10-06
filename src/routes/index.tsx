@@ -46,7 +46,7 @@ export const KnowledgeEntriesPage = () => {
             />
             <Link
               to="/add-entry"
-              className="flex items-center justify-center bg-primary hover:bg-primary-hover h-9 px-3 bg-blue-600 text-white"
+              className="flex items-center justify-center bg-primary hover:bg-primary-hover h-9 px-3 bg-black/90 text-white"
               data-testid="add-entry-link"
             >
               <Plus className="sm:mr-2" size={18} />
