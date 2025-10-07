@@ -1,7 +1,7 @@
-import { useState, type ChangeEvent, type FormEvent } from "react";
+import { useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import type { KnowledgeEntry } from "../types";
 import { TextInput } from "./TextInput";
-import { Plus, Save, Upload } from "lucide-react";
+import { Plus, Save, Upload, Edit, Trash2 } from "lucide-react";
 import { generateEntryId } from "../utils";
 
 type EntryFormProps = {
@@ -19,12 +19,37 @@ export const EntryForm = (props: EntryFormProps) => {
       imageUrl: "",
     }
   );
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
   const onDataChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setKnowledgeEntry((prevState) => ({
       ...prevState,
       [name]: value,
     }));
+  };
+
+  const clickFileInput = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleImageSelection = (event: ChangeEvent<HTMLInputElement>) => {
+    const { files } = event?.target;
+
+    if (files?.length) {
+      for (let file of files) {
+        if (file.size > 4194304) {
+          console.error("Image should be less than 4Mb");
+        } else if (file.type.includes("svg")) {
+          console.error("Svg not allowed");
+        } else {
+          setKnowledgeEntry((prevState) => ({
+            ...prevState,
+            imageUrl: URL.createObjectURL(file),
+          }));
+        }
+      }
+    } else console.error("Please select an image");
   };
 
   const onFormSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -57,16 +82,51 @@ export const EntryForm = (props: EntryFormProps) => {
       />
 
       <div className="col-span-full relative">
-        <input id="image" type="file" accept="image/*" className="hidden" />
-        <label
-          htmlFor="image"
-          className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed cursor-pointer bg-muted hover:bg-muted/80 transition-colors border-border"
-        >
-          <Upload className="mb-2 text-muted-foreground" />
-          <span className="text-sm text-muted-foreground">
-            Click to upload an image
-          </span>
-        </label>
+        <input
+          id="image"
+          type="file"
+          accept="image/*"
+          className="hidden"
+          ref={fileInputRef}
+          onChange={handleImageSelection}
+        />
+        <div className="border-2 border-dashed p-3 sm:p-5 rounded-md">
+          {knowledgeEntry.imageUrl ? (
+            <div className="w-full h-[18rem]  lg:h-[30rem] lg:w-[30rem] relative">
+              <img
+                src={knowledgeEntry.imageUrl}
+                alt="selected_image"
+                className="w-full h-full object-cover rounded-md"
+              />
+
+              <div className="absolute top-0 left-[102%] flex flex-col gap-2">
+                <button
+                  type="button"
+                  className="border hover:border-black/90 text-black/90 hover:text-white bg-[#f9fafb] hover:bg-black/90 flex items-center justify-center gap-1.5 p-2 cursor-pointer transition-colors focus:bg-black/90 focus:text-white focus:outline-none"
+                >
+                  <Edit size={20} />
+                </button>
+                <button
+                  type="button"
+                  className="border hover:border-red-600 text-red-600 hover:text-white bg-[#f9fafb] hover:bg-red-600 flex items-center justify-center gap-1.5 p-2 cursor-pointer transition-colors  focus:bg-red-600 focus:text-white focus:outline-none"
+                >
+                  <Trash2 size={20} />
+                </button>
+              </div>
+            </div>
+          ) : (
+            <label
+              htmlFor="image"
+              className="flex flex-col items-center justify-center w-full h-32 cursor-pointer transition-colors"
+              onClick={clickFileInput}
+            >
+              <Upload className="mb-2 text-muted-foreground" />
+              <span className="text-sm text-muted-foreground">
+                Click to upload an image
+              </span>
+            </label>
+          )}
+        </div>
       </div>
 
       <button
