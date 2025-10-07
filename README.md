@@ -86,7 +86,7 @@ This project uses [Playwright](https://playwright.dev/) for automated end-to-end
 
 ## Demo Video
 
-Click on the link to watch the demo video of the dashboard.
+Click on the link to watch the demo video of the dashboard. I used voice over for the screencapture so use a crop ratio of 2.26:1 to view it properly otherwise it looks small with the default ration after voice over. [Demo Link](https://drive.google.com/file/d/1wcGj5jqwIcTKEhOYvFyQ4DyN2f1DMhFs/view?usp=sharing)
 
 ## UI/UX improvement ideas
 
