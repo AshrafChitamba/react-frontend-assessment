@@ -20,6 +20,7 @@ export const EntryForm = (props: EntryFormProps) => {
     }
   );
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [selectedImage, setSelectedImage] = useState<File | null>(null);
 
   const onDataChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -38,8 +39,10 @@ export const EntryForm = (props: EntryFormProps) => {
       ...prevState,
       imageUrl: null,
     }));
+    setSelectedImage(null);
   };
-  const handleImageSelection = (event: ChangeEvent<HTMLInputElement>) => {
+
+  const handleImageSelection = async (event: ChangeEvent<HTMLInputElement>) => {
     const { files } = event.target;
 
     if (!files?.length) {
@@ -54,10 +57,15 @@ export const EntryForm = (props: EntryFormProps) => {
     } else if (file.type.includes("svg")) {
       console.error("Svg not allowed");
     } else {
-      setKnowledgeEntry((prevState) => ({
-        ...prevState,
-        imageUrl: URL.createObjectURL(file),
-      }));
+      setSelectedImage(file);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setKnowledgeEntry((prevState) => ({
+          ...prevState,
+          imageUrl: reader.result as string,
+        }));
+      };
+      reader.readAsDataURL(file);
     }
 
     event.target.value = "";
@@ -102,10 +110,10 @@ export const EntryForm = (props: EntryFormProps) => {
           onChange={handleImageSelection}
         />
         <div className="border-2 border-dashed p-3 sm:p-5 rounded-md">
-          {knowledgeEntry.imageUrl ? (
+          {selectedImage ? (
             <div className="w-full h-[18rem]  lg:h-[30rem] lg:w-[30rem] relative">
               <img
-                src={knowledgeEntry.imageUrl}
+                src={URL.createObjectURL(selectedImage)}
                 alt="selected_image"
                 className="w-full h-full object-cover rounded-md"
               />

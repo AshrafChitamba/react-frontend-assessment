@@ -14,6 +14,7 @@ export const KnowledgeEntryCard: FC<KnowledgeEntryCardProps> = ({
 }) => {
   return (
     <div className="flex flex-col justify-between py-8 px-7 bg-white rounded-md border">
+      <div><img src={entry.imageUrl || ""} alt=""  className="h-[200px] w-full"/></div>
       <div className="space-y-3">
         <h4 className="text-lg font-bold">{entry.title}</h4>
         <p className="text-[#627084] text-sm">{entry.description}</p>
