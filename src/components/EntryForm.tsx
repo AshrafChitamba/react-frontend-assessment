@@ -65,7 +65,7 @@ export const EntryForm = (props: EntryFormProps) => {
           imageUrl: reader.result as string,
         }));
       };
-      reader.readAsDataURL(file);
+    reader.readAsDataURL(file);
     }
 
     event.target.value = "";
