@@ -13,13 +13,17 @@ export const KnowledgeEntryCard: FC<KnowledgeEntryCardProps> = ({
   onSelected,
 }) => {
   return (
-    <div className="flex flex-col bg-white rounded-md border">
+    <div className="flex flex-col bg-white rounded-md border overflow-hidden">
       <div>
         {entry.imageUrl ? (
-          <img src={entry.imageUrl || ""} alt="" className="h-[200px] w-full" />
+          <img
+            src={entry.imageUrl}
+            alt="entry_image"
+            className="h-[180px] w-full rounded-t-md object-cover"
+          />
         ) : (
-          <div className="bg-gray-200 h-[180px] w-full rounded-t-md grid place-items-center">
-            <span className="text-4xl text-gray-400 font-extrabold">
+          <div className="bg-gray-200 h-[180px] w-full rounded-t-md grid place-items-center select-none">
+            <span className="text-4xl text-gray-300 font-extrabold">
               No Image
             </span>
           </div>
