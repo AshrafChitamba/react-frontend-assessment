@@ -33,23 +33,34 @@ export const EntryForm = (props: EntryFormProps) => {
     fileInputRef.current?.click();
   };
 
+  const removeSelectedImage = () => {
+    setKnowledgeEntry((prevState) => ({
+      ...prevState,
+      imageUrl: null,
+    }));
+  };
   const handleImageSelection = (event: ChangeEvent<HTMLInputElement>) => {
-    const { files } = event?.target;
+    const { files } = event.target;
 
-    if (files?.length) {
-      for (let file of files) {
-        if (file.size > 4194304) {
-          console.error("Image should be less than 4Mb");
-        } else if (file.type.includes("svg")) {
-          console.error("Svg not allowed");
-        } else {
-          setKnowledgeEntry((prevState) => ({
-            ...prevState,
-            imageUrl: URL.createObjectURL(file),
-          }));
-        }
-      }
-    } else console.error("Please select an image");
+    if (!files?.length) {
+      console.error("Please select an image");
+      return;
+    }
+
+    const file = files[0];
+
+    if (file.size > 4194304) {
+      console.error("Image should be less than 4Mb");
+    } else if (file.type.includes("svg")) {
+      console.error("Svg not allowed");
+    } else {
+      setKnowledgeEntry((prevState) => ({
+        ...prevState,
+        imageUrl: URL.createObjectURL(file),
+      }));
+    }
+
+    event.target.value = "";
   };
 
   const onFormSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -103,12 +114,14 @@ export const EntryForm = (props: EntryFormProps) => {
                 <button
                   type="button"
                   className="border hover:border-black/90 text-black/90 hover:text-white bg-[#f9fafb] hover:bg-black/90 flex items-center justify-center gap-1.5 p-2 cursor-pointer transition-colors focus:bg-black/90 focus:text-white focus:outline-none"
+                  onClick={clickFileInput}
                 >
                   <Edit size={20} />
                 </button>
                 <button
                   type="button"
                   className="border hover:border-red-600 text-red-600 hover:text-white bg-[#f9fafb] hover:bg-red-600 flex items-center justify-center gap-1.5 p-2 cursor-pointer transition-colors  focus:bg-red-600 focus:text-white focus:outline-none"
+                  onClick={removeSelectedImage}
                 >
                   <Trash2 size={20} />
                 </button>
