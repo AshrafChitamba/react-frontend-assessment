@@ -6,7 +6,7 @@ import { DeleteEntryDisclaimer } from "../components/DeleteEntryDisclaimer";
 import { useState } from "react";
 
 export const KnowledgeEntriesPage = () => {
-  const { data, isPending } = useFetchEntries();
+  const { data, isPending, searchText, setSearchText } = useFetchEntries();
   const [openModal, setOpenModal] = useState(false);
   const [entryId, setEntryId] = useState<string | null>(null);
   const deleteEntryMutation = useDeleteEntry();
@@ -39,9 +39,9 @@ export const KnowledgeEntriesPage = () => {
               id="search"
               name="search"
               placeholder="Search here..."
-              value=""
+              value={searchText}
               onChange={(e) => {
-                console.log(e);
+                setSearchText(e.target.value);
               }}
             />
             <Link
