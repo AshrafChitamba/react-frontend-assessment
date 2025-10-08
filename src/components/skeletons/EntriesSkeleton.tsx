@@ -14,7 +14,7 @@ export const EntriesSkeleton = () => {
               <div className="bg-gray-300 h-2 w-[92%] rounded-md"></div>
               <div className="bg-gray-300 h-2 w-[86%] rounded-md"></div>
               <div className="bg-gray-300 h-2 w-[80%] rounded-md"></div>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 gap-3 mt-5">
                 <div className="bg-gray-300 h-8 rounded-md"></div>
                 <div className="bg-gray-300 h-8 rounded-md"></div>
               </div>
