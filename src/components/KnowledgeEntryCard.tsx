@@ -19,10 +19,10 @@ export const KnowledgeEntryCard: FC<KnowledgeEntryCardProps> = ({
           <img
             src={entry.imageUrl}
             alt="entry_image"
-            className="h-[180px] w-full rounded-t-md object-cover"
+            className="h-[11.25rem] w-full rounded-t-md object-cover"
           />
         ) : (
-          <div className="bg-gray-200 h-[180px] w-full rounded-t-md grid place-items-center select-none">
+          <div className="bg-gray-200 h-[11.25rem] w-full rounded-t-md grid place-items-center select-none">
             <span className="text-4xl text-gray-300 font-extrabold">
               No Image
             </span>
