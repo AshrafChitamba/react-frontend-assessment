@@ -110,10 +110,10 @@ export const EntryForm = (props: EntryFormProps) => {
           onChange={handleImageSelection}
         />
         <div className="border-2 border-dashed p-3 sm:p-5 rounded-md">
-          {selectedImage ? (
+          {knowledgeEntry.imageUrl|| selectedImage ? (
             <div className="w-full h-[18rem]  lg:h-[30rem] lg:w-[30rem] relative">
               <img
-                src={URL.createObjectURL(selectedImage)}
+                src={knowledgeEntry.imageUrl || URL.createObjectURL(selectedImage as File)}
                 alt="selected_image"
                 className="w-full h-full object-cover rounded-md"
               />
