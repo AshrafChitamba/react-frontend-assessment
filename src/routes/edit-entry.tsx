@@ -3,21 +3,15 @@ import { EntryForm, GoBackBtn } from "../components";
 import { useFetchEntries } from "../hooks";
 import type { KnowledgeEntry } from "../types";
 import { useEditEntry } from "../hooks/useEditEntry";
+import { EntryFormSkeleton } from "../components/skeletons";
 
 const EditKnowledgeEntryPage = () => {
   const { id } = Route.useSearch();
-  const editEntryMutation = useEditEntry()
+  const editEntryMutation = useEditEntry();
 
-  const { data: currentEntry, isPending } =
-    useFetchEntries<KnowledgeEntry>(id);
+  const { data: currentEntry, isPending } = useFetchEntries<KnowledgeEntry>(id);
 
-  if (isPending) {
-    return (
-      <div>
-        <span>Loading Entry...</span>
-      </div>
-    );
-  }
+  if (isPending) return <EntryFormSkeleton />;
 
   return (
     <main>
