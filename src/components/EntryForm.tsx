@@ -159,7 +159,7 @@ export const EntryForm = (props: EntryFormProps) => {
         ) : props.action === "edit" ? (
           <>
             <Save className="sm:mr-2" size={18} />
-            <span>{props.isPending ? "Editing Entry..." : "Edit Entry"}</span>
+            <span>{props.isPending ? "Saving..." : "Save Changes"}</span>
           </>
         ) : null}
       </button>
