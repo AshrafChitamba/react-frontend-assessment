@@ -4,6 +4,7 @@ import { Plus } from "lucide-react";
 import { useDeleteEntry, useFetchEntries } from "../hooks";
 import { DeleteEntryDisclaimer } from "../components/DeleteEntryDisclaimer";
 import { useState } from "react";
+import { EntriesSkeleton } from "../components/skeletons";
 
 export const KnowledgeEntriesPage = () => {
   const { data, isPending, searchText, setSearchText } = useFetchEntries();
@@ -21,13 +22,7 @@ export const KnowledgeEntriesPage = () => {
     setOpenModal(false);
   };
 
-  if (isPending) {
-    return (
-      <div>
-        <span>Loading Entries...</span>
-      </div>
-    );
-  }
+  if (isPending) return <EntriesSkeleton />;
 
   return (
     <main>
@@ -46,7 +41,7 @@ export const KnowledgeEntriesPage = () => {
             />
             <Link
               to="/add-entry"
-              className="flex items-center justify-center bg-primary hover:bg-primary-hover h-9 px-3 bg-black/90 text-white"
+              className="flex items-center justify-center h-9 px-3 bg-black/90 text-white"
               data-testid="add-entry-link"
             >
               <Plus className="sm:mr-2" size={18} />
