@@ -3,6 +3,18 @@ import type { KnowledgeEntry } from "../types";
 import { TextInput } from "./TextInput";
 import { Plus, Save, Upload, Edit, Trash2 } from "lucide-react";
 import { generateEntryId } from "../utils";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const entrySchema = z.object({
+  title: z.string().min(10, "Title is too short").nonempty("Title is required"),
+  description: z
+    .string()
+    .min(6, "Description is too short")
+    .nonempty("Description is required"),
+});
+type EntrySchemaType = z.infer<typeof entrySchema>;
 
 type EntryFormProps = {
   action: "add" | "edit";
@@ -19,6 +31,19 @@ export const EntryForm = (props: EntryFormProps) => {
       imageUrl: "",
     }
   );
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<EntrySchemaType>({
+    resolver: zodResolver(entrySchema),
+    defaultValues: {
+      title: "",
+      description: "",
+    },
+  });
+
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const onDataChange = (event: ChangeEvent<HTMLInputElement>) => {
