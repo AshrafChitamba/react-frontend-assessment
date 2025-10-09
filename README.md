@@ -92,9 +92,6 @@ This project uses [Playwright](https://playwright.dev/) for automated end-to-end
 
 ## Demo Video
 
-Click on the link to watch the demo video of the dashboard. I used voice over for the screencapture so use a crop ratio of 2.26:1 to view it properly otherwise it looks small with the default ration after voice over. ![Demo Video](./public/demo/demo.webm)
-
-
 ## UI/UX improvement ideas
 
 There are so many features that I can improve in terms of UI and UX.
