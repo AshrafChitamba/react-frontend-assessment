@@ -22,8 +22,7 @@ const EditKnowledgeEntryPage = () => {
         <EntryForm
           action="edit"
           entry={currentEntry}
-          onSubmitForm={editEntryMutation.mutate}
-          isPending={editEntryMutation.isPending}
+          mutation={editEntryMutation}
         />
       ) : null}
     </main>

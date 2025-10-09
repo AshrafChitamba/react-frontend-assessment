@@ -10,11 +10,7 @@ const AddKnowledgeEntryPage = () => {
       <div className="container mx-auto px-4 py-4">
         <GoBackBtn />
       </div>
-      <EntryForm
-        action="add"
-        onSubmitForm={addEntryMutation.mutate}
-        isPending={addEntryMutation.isPending}
-      />
+      <EntryForm action="add" mutation={addEntryMutation} />
     </main>
   );
 };
