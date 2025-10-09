@@ -162,7 +162,6 @@ export const EntryForm = (props: EntryFormProps) => {
             </div>
           ) : (
             <label
-              htmlFor="image"
               className="flex flex-col items-center justify-center w-full h-32 cursor-pointer transition-colors"
               onClick={clickFileInput}
             >
@@ -186,12 +185,16 @@ export const EntryForm = (props: EntryFormProps) => {
         {props.action === "add" ? (
           <>
             <Plus className="sm:mr-2" size={18} />
-            <span>{props.mutation.isPending ? "Adding Entry..." : "Add Entry"}</span>
+            <span>
+              {props.mutation.isPending ? "Adding Entry..." : "Add Entry"}
+            </span>
           </>
         ) : props.action === "edit" ? (
           <>
             <Save className="sm:mr-2" size={18} />
-            <span>{props.mutation.isPending ? "Saving..." : "Save Changes"}</span>
+            <span>
+              {props.mutation.isPending ? "Saving..." : "Save Changes"}
+            </span>
           </>
         ) : null}
       </button>

@@ -2,6 +2,9 @@
 
 Welcome to the **Technician Portal**, a mobile-first knowledge capture interface for manufacturing technicians. This project demonstrates building responsive, simple pixel-perfect UI with CRUD functionality, API integration, and automated testing.
 
+![Dashboard](./public/demo/dashboard.png)
+
+
 ---
 
 ## Tools & Technologies
@@ -51,7 +54,7 @@ Follow these steps to run the project locally:
 
    > You may use a different port if `4000` is not available or just leave the default port without having to specify --port.
 
-  The current setup is set to use port `4000` so changing this will require you to modify the `src/api/apiClientConfig.ts` file to use the port you have selected. For example, if it's a default port, put 3000.
+   The current setup is set to use port `4000` so changing this will require you to modify the `src/api/apiClientConfig.ts` file to use the port you have selected. For example, if it's a default port, put 3000.
 ---
 
 ## Running Tests
@@ -72,6 +75,9 @@ This project uses [Playwright](https://playwright.dev/) for automated end-to-end
    ```bash
    npx playwright test --ui
    ```
+   
+   ![Playwright](./public/demo/playwright.png)
+
 ---
 
 * The app is designed with a **mobile-first** approach, then desktop.
@@ -86,7 +92,8 @@ This project uses [Playwright](https://playwright.dev/) for automated end-to-end
 
 ## Demo Video
 
-Click on the link to watch the demo video of the dashboard. I used voice over for the screencapture so use a crop ratio of 2.26:1 to view it properly otherwise it looks small with the default ration after voice over. [Demo Link](https://drive.google.com/file/d/1wcGj5jqwIcTKEhOYvFyQ4DyN2f1DMhFs/view?usp=sharing)
+Click on the link to watch the demo video of the dashboard. I used voice over for the screencapture so use a crop ratio of 2.26:1 to view it properly otherwise it looks small with the default ration after voice over. ![Demo Video](./public/demo/demo.webm)
+
 
 ## UI/UX improvement ideas
 
