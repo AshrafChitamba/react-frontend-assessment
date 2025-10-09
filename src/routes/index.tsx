@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { KnowledgeEntryCard, SearchInput, TextInput } from "../components";
+import { KnowledgeEntryCard, SearchInput } from "../components";
 import { Plus } from "lucide-react";
 import { useDeleteEntry, useFetchEntries } from "../hooks";
 import { DeleteEntryDisclaimer } from "../components/DeleteEntryDisclaimer";

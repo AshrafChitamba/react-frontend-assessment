@@ -100,24 +100,19 @@ There are so many features that I can improve in terms of UI and UX.
 
     I would add optimistic updates for all the mutations to increase perfomance for a better use experince. Optmistic updates are handled before invalidating the queries thus sending another request. So the optimistic update would make an update to the UI before sending another request to update the querycache and when it invalidates, it's as if nothing has changed. This would reduce the amount of time a use has to see the updated records. Optimistic updates only work when the server is sending back the newly created record or the updated record.
 
-3. **Adding shimmer effect aka loading skeletons**
-    
-    Loading spinners are a better way of engaging users to somehow mimic the kind og content they are expecting to see to keep their attention instead of a loading spinner or text.
+3. **Working with cloud storage**
 
-    For the buttons, spinners would be a good choice.
+    The current implementation for image upload, is to just turn into base64. This in turn, reduces the perfomance of the website on a large scale as the browser has to convert back the base64. It even gets worse when the bae64 is saved in a db which any developer should not do. Storing images in a cloud storage like cloudinary or firebase, would increase the website perfomance or saving the images on the server. 
 
-4. **Disabling inputs and buttons on a mutation**
-
-    Disabling inputs and buttons when a mutation is pending is cruicial to avoid multiple requests or any other user unexpected behavior.
-
-5. **Adding React Hook Form**
-
-    Adding packages like `react-hook-form` gives a better user experience in working with forms and it's also a better approach to validate user input as schema validation  with packages like `zod` or `yup`. It works well if the backend also has schema validation.
-
-6. **Adding search functionality**
-
-    Adding search functionality would with debouncing technique to improve user experience.
-
-7. **Adding pagination**
+4. **Adding pagination**
 
     Adding pagination in a case where we have so many records. This would increase app perfomance. It can also be an infinite scroll technique but this is not a good solution in a cse of a user dashboard.
+
+5. **Refactoring code and Code Spliting**
+
+    Refactoring code and splitting code into small chunks for better perfomance.
+
+6. **Error Handling**
+
+    Adding error handling for unknow erros thrown by react, that I hold no ability to resolve.
+
