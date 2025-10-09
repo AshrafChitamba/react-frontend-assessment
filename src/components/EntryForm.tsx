@@ -1,6 +1,6 @@
 import { useRef, type ChangeEvent } from "react";
 import type { KnowledgeEntry } from "../types";
-import { TextInputField } from "./TextInput";
+import { TextInput } from "./TextInput";
 import { Plus, Save, Upload, Edit, Trash2 } from "lucide-react";
 import { generateEntryId } from "../utils";
 import { useForm } from "react-hook-form";
@@ -101,7 +101,7 @@ export const EntryForm = (props: EntryFormProps) => {
       className="grid px-4 py-6 gap-4 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2"
       onSubmit={handleSubmit(onFormSubmit)}
     >
-      <TextInputField
+      <TextInput
         type="text"
         id="title"
         placeholder="Enter title..."
@@ -110,7 +110,7 @@ export const EntryForm = (props: EntryFormProps) => {
         error={errors.title}
         disabled={props.mutation.isPending}
       />
-      <TextInputField
+      <TextInput
         type="text"
         id="description"
         placeholder="Enter description..."
@@ -181,7 +181,7 @@ export const EntryForm = (props: EntryFormProps) => {
 
       <button
         data-testid="submit-entry-btn"
-        className="col-span-full inline-flex w-fit items-center justify-center h-9 px-3 bg-black/90 text-white cursor-pointer"
+        className="col-span-full inline-flex w-fit items-center justify-center h-11 px-4 bg-black/90 hover:bg-black/80 text-white cursor-pointer transition-colors"
       >
         {props.action === "add" ? (
           <>

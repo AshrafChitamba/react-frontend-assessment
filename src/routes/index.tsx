@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { KnowledgeEntryCard, TextInput } from "../components";
+import { KnowledgeEntryCard, SearchInput, TextInput } from "../components";
 import { Plus } from "lucide-react";
 import { useDeleteEntry, useFetchEntries } from "../hooks";
 import { DeleteEntryDisclaimer } from "../components/DeleteEntryDisclaimer";
@@ -29,19 +29,10 @@ export const KnowledgeEntriesPage = () => {
       {data ? (
         <section className="container mx-auto px-4 py-4">
           <div className="flex justify-end items-center gap-2 pt-3 pb-6">
-            <TextInput
-              type="search"
-              id="search"
-              name="search"
-              placeholder="Search here..."
-              value={searchText}
-              onChange={(e) => {
-                setSearchText(e.target.value);
-              }}
-            />
+            <SearchInput value={searchText} setValue={setSearchText} />
             <Link
               to="/add-entry"
-              className="flex items-center justify-center h-9 px-3 bg-black/90 text-white"
+              className="flex items-center justify-center h-11 px-4 bg-black/90 hover:bg-black/80 text-white transition-colors"
               data-testid="add-entry-link"
             >
               <Plus className="sm:mr-2" size={18} />
