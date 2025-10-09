@@ -92,6 +92,8 @@ This project uses [Playwright](https://playwright.dev/) for automated end-to-end
 
 ## Demo Video
 
+[demo.webm](https://github.com/user-attachments/assets/99080192-c423-41eb-9afe-8bab0ba9e0d0)
+
 ## UI/UX improvement ideas
 
 There are so many features that I can improve in terms of UI and UX.
